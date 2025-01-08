@@ -1,0 +1,7 @@
+data/*
+.terraform.*
+.terraform/*
+*.terraform
+*.tfstate
+*.tfstate.*
+renv/*

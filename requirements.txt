@@ -1,0 +1,6 @@
+pandas
+faker
+pymysql
+pymongo
+paramiko
+boto3
