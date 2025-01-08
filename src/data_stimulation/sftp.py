@@ -11,8 +11,8 @@ fake = Faker()
 S3_Bucket_Name = "retail-shipping-address-dump-01082025"
 S3_FILE_PREFIX = "shipping_data/"
 AWS_REGION = "us-west-2"
-AWS_ACCESS_KEY = "AKIA6GBMFHCDTOT6TTBR"
-AWS_SECRET_KEY = "ZTTdOSFh4Yqv2Cjss1NqBFVOgU0iSyF7htsbNvNP"
+AWS_ACCESS_KEY = "XXXXX"
+AWS_SECRET_KEY = "XXXXXXXXX"
 
 # Define the path to the "data" folder outside the "src" folder
 project_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
