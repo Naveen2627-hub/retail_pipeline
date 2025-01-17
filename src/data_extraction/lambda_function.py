@@ -95,7 +95,7 @@ def lambda_handler(event, context):
         save_to_s3_as_csv(rds_data, headers, "rds_data/customers.csv")
 
         # Query RDS and save as CSV
-        product_query = "SELECT * FROM customers;"
+        product_query = "SELECT * FROM products;"
         headers, rds_data = extract_from_rds(product_query)
         save_to_s3_as_csv(rds_data, headers, "rds_data/products.csv")
 
