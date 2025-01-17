@@ -3,8 +3,8 @@ name: Deploy Glue Resources
 on:
   push:
     paths:
-      - 'glue_transform.py'
-      - 'requirements.txt'
+      - 'src/transform_data/glue_transform.py'
+      - 'glue_requirements.txt'
 
 jobs:
   deploy-glue-resources:
