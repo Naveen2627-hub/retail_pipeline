@@ -23,10 +23,10 @@ products_df = pd.read_csv(args["input_products"])
 
 #Comment to trigger workflow
 # Inspect and convert data types in Inventory
-inventory_df["stock"] = pd.to_numeric(inventory_df["stock"], errors="coerce")
+# Ensure stock and price are numeric
+inventory_df["stock"] = pd.to_numeric(inventory_df["stock"], errors="coerce").fillna(0)
+products_df["price"] = pd.to_numeric(products_df["price"], errors="coerce").fillna(0)
 
-# Inspect and convert data types in Products
-products_df["price"] = pd.to_numeric(products_df["price"], errors="coerce")
 
 # Merge the two dataframes
 merged_df = pd.merge(inventory_df, products_df, on="product_id", how="inner")
