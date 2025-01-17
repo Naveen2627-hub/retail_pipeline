@@ -19,6 +19,7 @@ job.init(args["JOB_NAME"], args)
 inventory_df = pd.read_csv(args["input_inventory"])
 products_df = pd.read_csv(args["input_products"])
 
+#Comment to trigger workflow
 # Inspect and convert data types in Inventory
 inventory_df["stock"] = pd.to_numeric(inventory_df["stock"], errors="coerce")
 
