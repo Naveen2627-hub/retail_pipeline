@@ -1,0 +1,40 @@
+name: Deploy Glue Resources
+
+on:
+  push:
+    paths:
+      - 'glue_transform.py'
+      - 'requirements.txt'
+
+jobs:
+  deploy-glue-resources:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.9
+
+    - name: Install dependencies and create .whl files
+      run: |
+        mkdir dependencies
+        pip download -r glue_requirements.txt -d dependencies/
+
+    - name: Set up AWS CLI
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Upload Glue script to S3
+      run: |
+        aws s3 cp glue_transform.py s3://glue-resources-bucket/scripts/glue_transform.py
+
+    - name: Upload dependencies to S3
+      run: |
+        aws s3 cp dependencies/ s3://glue-resources-bucket/dependencies/ --recursive
