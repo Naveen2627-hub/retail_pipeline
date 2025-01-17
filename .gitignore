@@ -5,3 +5,6 @@ data/*
 *.tfstate
 *.tfstate.*
 renv/*
+infrastructure/lambda_function/*
+*.zip
+package/*

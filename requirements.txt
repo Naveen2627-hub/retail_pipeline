@@ -1,6 +1,2 @@
-pandas
-faker
-pymysql
-pymongo
-paramiko
 boto3
+pg8000
