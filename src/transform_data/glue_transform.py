@@ -15,6 +15,8 @@ spark = glueContext.spark_session
 job = Job(glueContext)
 job.init(args["JOB_NAME"], args)
 
+print("connection Success!!!!!")
+
 # Read Inventory CSV into Pandas
 inventory_df = pd.read_csv(args["input_inventory"])
 products_df = pd.read_csv(args["input_products"])
