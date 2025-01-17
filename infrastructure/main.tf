@@ -148,7 +148,7 @@ resource "aws_glue_job" "glue_job" {
     python_version  = "3"
   }
 
-  max_capacity = 2
+  max_capacity = 5
 
   default_arguments = {
     "--input_inventory"      = "s3://extracted-data-bucket-7d1207477e5d4493/Inventory/inventory_data.csv"
@@ -158,7 +158,7 @@ resource "aws_glue_job" "glue_job" {
     "--enable-glue-datacatalog" = "true"
   }
 
-  glue_version = "2.0"
+  glue_version = "3.0" 
 }
 
 # IAM Role for Glue
