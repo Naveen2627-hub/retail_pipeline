@@ -90,9 +90,14 @@ def save_dynamodb_to_s3_as_csv(data, file_name):
 def lambda_handler(event, context):
     try:
         # Query RDS and save as CSV
-        query = "SELECT * FROM customers LIMIT 1000;"
-        headers, rds_data = extract_from_rds(query)
+        customer_query = "SELECT * FROM customers;"
+        headers, rds_data = extract_from_rds(customer_query)
         save_to_s3_as_csv(rds_data, headers, "rds_data/customers.csv")
+
+        # Query RDS and save as CSV
+        product_query = "SELECT * FROM customers;"
+        headers, rds_data = extract_from_rds(product_query)
+        save_to_s3_as_csv(rds_data, headers, "rds_data/products.csv")
 
         # Query DynamoDB and save as CSV
         dynamodb_table = "Inventory"
