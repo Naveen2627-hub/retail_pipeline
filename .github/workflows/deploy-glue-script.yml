@@ -33,7 +33,7 @@ jobs:
 
     - name: Upload Glue script to S3
       run: |
-        aws s3 cp glue_transform.py s3://glue-resources-bucket-8ad42fe9/scripts/glue_transform.py
+        aws s3 cp src/transform_data/glue_transform.py s3://glue-resources-bucket-8ad42fe9/scripts/glue_transform.py
 
     - name: Upload dependencies to S3
       run: |
